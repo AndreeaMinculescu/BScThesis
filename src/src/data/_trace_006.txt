@@ -1,0 +1,501 @@
+    0.000   vision            unrequested [vision~63]
+    0.000   procedural        start
+    0.050   procedural        ** DRIVE*ATTEND-NEAR **
+    0.050   vision            find-location [vision~68]
+    0.050   declarative       start-retrieval
+    0.050   declarative       retrieved-chunk [attend]
+    0.100   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    0.100   vision            find-location [vision~71]
+    0.150   procedural        ** DRIVE*PROCESS-WITHOUT-OLD **
+    0.150   vision            find-location [vision~76]
+    0.150   declarative       start-retrieval
+    0.150   declarative       retrieved-chunk [attend]
+    0.200   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    0.200   vision            find-location [vision~79]
+    0.250   procedural        ** DRIVE*PROCESS-CAR **
+    0.250   vision            move-attention
+    0.293   vision            encoding-complete [car~82]
+    0.343   procedural        ** DRIVE*LOOP-STABLE **
+    0.385   eye               preparation-complete [car~82]
+    0.393   procedural        ** DRIVE*ATTEND-NEAR **
+    0.393   vision            find-location [vision~87]
+    0.393   declarative       start-retrieval
+    0.393   declarative       retrieved-chunk [attend]
+    0.443   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    0.443   vision            find-location [vision~90]
+    0.463   eye               execution-complete [car~82]
+    0.493   procedural        ** DRIVE*PROCESS-CAR **
+    0.493   vision            move-attention
+    0.507   vision            encoding-complete [car~93]
+    0.557   procedural        ** DRIVE*LOOP-STABLE **
+    0.607   procedural        ** DRIVE*ATTEND-NEAR **
+    0.607   vision            find-location [vision~98]
+    0.607   declarative       start-retrieval
+    0.607   declarative       retrieved-chunk [attend]
+    0.628   eye               preparation-complete [car~93]
+    0.657   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    0.657   vision            find-location [vision~101]
+    0.700   eye               execution-complete [car~93]
+    0.707   procedural        ** DRIVE*PROCESS-CAR **
+    0.707   vision            move-attention
+    0.719   vision            encoding-complete [car~104]
+    0.769   procedural        ** DRIVE*LOOP-STABLE **
+    0.819   procedural        ** DRIVE*ATTEND-NEAR **
+    0.819   vision            find-location [vision~109]
+    0.819   declarative       start-retrieval
+    0.819   declarative       retrieved-chunk [wander]
+    0.842   eye               preparation-complete [car~104]
+    0.869   procedural        ** START-MIND-WANDER **
+    0.869   declarative       store chunk [wander] (wander isa goal)
+    0.869   declarative       start-retrieval
+    0.869   declarative       retrieved-chunk [item31]
+    0.912   eye               execution-complete [car~104]
+    0.919   procedural        ** REMEMBER-TO-ATTEND **
+    0.919   declarative       store chunk [item31] (item31 isa memory awareness attend)
+    0.919   vision            find-location [vision~116]
+    0.919   declarative       start-retrieval
+    0.919   declarative       retrieved-chunk [attend]
+    0.969   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    0.969   vision            find-location [vision~119]
+    1.019   procedural        ** DRIVE*PROCESS-CAR **
+    1.019   vision            move-attention
+    1.041   vision            encoding-complete [car~122]
+    1.091   procedural        ** DRIVE*LOOP-STABLE **
+    1.141   procedural        ** DRIVE*ATTEND-NEAR **
+    1.141   vision            find-location [vision~127]
+    1.141   declarative       start-retrieval
+    1.141   declarative       retrieved-chunk [attend]
+    1.154   eye               preparation-complete [car~122]
+    1.191   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    1.191   vision            find-location [vision~130]
+    1.224   eye               execution-complete [car~122]
+    1.241   procedural        ** DRIVE*PROCESS-CAR **
+    1.241   vision            move-attention
+    1.260   vision            encoding-complete [car~133]
+    1.310   procedural        ** DRIVE*LOOP-STABLE **
+    1.360   procedural        ** DRIVE*ATTEND-NEAR **
+    1.360   vision            find-location [vision~138]
+    1.360   declarative       start-retrieval
+    1.360   declarative       retrieved-chunk [attend]
+    1.376   eye               preparation-complete [car~133]
+    1.410   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    1.410   vision            find-location [vision~141]
+    1.446   eye               execution-complete [car~133]
+    1.460   procedural        ** DRIVE*PROCESS-CAR **
+    1.460   vision            move-attention
+    1.476   vision            encoding-complete [car~144]
+    1.526   procedural        ** DRIVE*LOOP-STABLE **
+    1.576   procedural        ** DRIVE*ATTEND-NEAR **
+    1.576   vision            find-location [vision~149]
+    1.576   declarative       start-retrieval
+    1.576   declarative       retrieved-chunk [wander]
+    1.595   eye               preparation-complete [car~144]
+    1.626   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    1.626   vision            find-location [vision~152]
+    1.665   eye               execution-complete [car~144]
+    1.676   procedural        ** DRIVE*PROCESS-CAR **
+    1.676   vision            move-attention
+    1.688   vision            encoding-complete [car~155]
+    1.738   procedural        ** DRIVE*LOOP-STABLE **
+    1.788   procedural        ** DRIVE*ATTEND-NEAR **
+    1.788   vision            find-location [vision~160]
+    1.788   declarative       start-retrieval
+    1.788   declarative       retrieved-chunk [attend]
+    1.811   eye               preparation-complete [car~155]
+    1.838   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    1.838   vision            find-location [vision~163]
+    1.881   eye               execution-complete [car~155]
+    1.888   procedural        ** DRIVE*PROCESS-CAR **
+    1.888   vision            move-attention
+    1.898   vision            encoding-complete [car~166]
+    1.948   procedural        ** DRIVE*LOOP-STABLE **
+    1.998   procedural        ** DRIVE*ATTEND-NEAR **
+    1.998   vision            find-location [vision~171]
+    1.998   declarative       start-retrieval
+    1.998   declarative       retrieved-chunk [wander]
+    2.023   eye               preparation-complete [car~166]
+    2.048   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    2.048   vision            find-location [vision~174]
+    2.093   eye               execution-complete [car~166]
+    2.098   procedural        ** DRIVE*PROCESS-CAR **
+    2.098   vision            move-attention
+    2.106   vision            encoding-complete [car~177]
+    2.156   procedural        ** DRIVE*LOOP-STABLE **
+    2.206   procedural        ** DRIVE*ATTEND-NEAR **
+    2.206   vision            find-location [vision~182]
+    2.206   declarative       start-retrieval
+    2.206   declarative       retrieved-chunk [attend]
+    2.233   eye               preparation-complete [car~177]
+    2.256   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    2.256   vision            find-location [vision~185]
+    2.303   eye               execution-complete [car~177]
+    2.306   procedural        ** DRIVE*PROCESS-CAR **
+    2.306   vision            move-attention
+    2.320   vision            encoding-complete [car~188]
+    2.370   procedural        ** DRIVE*LOOP-STABLE **
+    2.420   procedural        ** DRIVE*ATTEND-NEAR **
+    2.420   vision            find-location [vision~193]
+    2.420   declarative       start-retrieval
+    2.420   declarative       retrieved-chunk [wander]
+    2.441   eye               preparation-complete [car~188]
+    2.470   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    2.470   vision            find-location [vision~196]
+    2.511   eye               execution-complete [car~188]
+    2.520   procedural        ** DRIVE*PROCESS-CAR **
+    2.520   vision            move-attention
+    2.541   vision            encoding-complete [car~199]
+    2.591   procedural        ** DRIVE*LOOP-STABLE **
+    2.641   procedural        ** DRIVE*ATTEND-NEAR **
+    2.641   vision            find-location [vision~204]
+    2.641   declarative       start-retrieval
+    2.641   declarative       retrieved-chunk [attend]
+    2.655   eye               preparation-complete [car~199]
+    2.691   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    2.691   vision            find-location [vision~207]
+    2.725   eye               execution-complete [car~199]
+    2.741   procedural        ** DRIVE*PROCESS-CAR **
+    2.741   vision            move-attention
+    2.761   vision            encoding-complete [car~210]
+    2.811   procedural        ** DRIVE*LOOP-STABLE **
+    2.861   procedural        ** DRIVE*ATTEND-NEAR **
+    2.861   vision            find-location [vision~215]
+    2.861   declarative       start-retrieval
+    2.861   declarative       retrieved-chunk [wander]
+    2.876   eye               preparation-complete [car~210]
+    2.911   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    2.911   vision            find-location [vision~218]
+    2.946   eye               execution-complete [car~210]
+    2.961   procedural        ** DRIVE*PROCESS-CAR **
+    2.961   vision            move-attention
+    2.973   vision            encoding-complete [car~221]
+    3.023   procedural        ** DRIVE*LOOP-STABLE **
+    3.073   procedural        ** DRIVE*ATTEND-NEAR **
+    3.073   vision            find-location [vision~226]
+    3.073   declarative       start-retrieval
+    3.073   declarative       retrieved-chunk [attend]
+    3.096   eye               preparation-complete [car~221]
+    3.123   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    3.123   vision            find-location [vision~229]
+    3.166   eye               execution-complete [car~221]
+    3.173   procedural        ** DRIVE*PROCESS-CAR **
+    3.173   vision            move-attention
+    3.177   vision            encoding-complete [car~232]
+    3.227   procedural        ** DRIVE*LOOP-STABLE **
+    3.277   procedural        ** DRIVE*ATTEND-NEAR **
+    3.277   vision            find-location [vision~237]
+    3.277   declarative       start-retrieval
+    3.277   declarative       retrieved-chunk [wander]
+    3.308   eye               preparation-complete [car~232]
+    3.327   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    3.327   vision            find-location [vision~240]
+    3.377   procedural        ** DRIVE*PROCESS-CAR **
+    3.377   vision            move-attention
+    3.378   eye               execution-complete [car~232]
+    3.390   vision            encoding-complete [car~243]
+    3.440   procedural        ** DRIVE*LOOP-STABLE **
+    3.490   procedural        ** DRIVE*ATTEND-NEAR **
+    3.490   vision            find-location [vision~248]
+    3.490   declarative       start-retrieval
+    3.490   declarative       retrieved-chunk [attend]
+    3.513   eye               preparation-complete [car~232]
+    3.540   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    3.540   vision            find-location [vision~251]
+    3.583   eye               execution-complete [car~232]
+    3.590   procedural        ** DRIVE*PROCESS-CAR **
+    3.590   vision            move-attention
+    3.608   vision            encoding-complete [car~254]
+    3.658   procedural        ** DRIVE*LOOP-STABLE **
+    3.708   procedural        ** DRIVE*ATTEND-NEAR **
+    3.708   vision            find-location [vision~259]
+    3.708   declarative       start-retrieval
+    3.708   declarative       retrieved-chunk [attend]
+    3.725   eye               preparation-complete [car~254]
+    3.758   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    3.758   vision            find-location [vision~262]
+    3.796   eye               execution-complete [car~254]
+    3.808   procedural        ** DRIVE*PROCESS-CAR **
+    3.808   vision            move-attention
+    3.827   vision            encoding-complete [car~265]
+    3.877   procedural        ** DRIVE*LOOP-STABLE **
+    3.927   procedural        ** DRIVE*ATTEND-NEAR **
+    3.927   vision            find-location [vision~270]
+    3.927   declarative       start-retrieval
+    3.927   declarative       retrieved-chunk [wander]
+    3.943   eye               preparation-complete [car~265]
+    3.977   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    3.977   vision            find-location [vision~273]
+    4.013   eye               execution-complete [car~265]
+    4.027   procedural        ** DRIVE*PROCESS-CAR **
+    4.027   vision            move-attention
+    4.038   vision            encoding-complete [car~276]
+    4.088   procedural        ** DRIVE*LOOP-STABLE **
+    4.138   procedural        ** DRIVE*ATTEND-NEAR **
+    4.138   vision            find-location [vision~281]
+    4.138   declarative       start-retrieval
+    4.138   declarative       retrieved-chunk [wander]
+    4.162   eye               preparation-complete [car~276]
+    4.188   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    4.188   vision            find-location [vision~284]
+    4.232   eye               execution-complete [car~276]
+    4.238   procedural        ** DRIVE*PROCESS-CAR **
+    4.238   vision            move-attention
+    4.243   vision            encoding-complete [car~287]
+    4.293   procedural        ** DRIVE*LOOP-STABLE **
+    4.343   procedural        ** DRIVE*ATTEND-NEAR **
+    4.343   vision            find-location [vision~292]
+    4.343   declarative       start-retrieval
+    4.343   declarative       retrieved-chunk [wander]
+    4.373   eye               preparation-complete [car~287]
+    4.393   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    4.393   vision            find-location [vision~295]
+    4.443   procedural        ** DRIVE*PROCESS-CAR **
+    4.443   vision            move-attention
+    4.443   eye               execution-complete [car~287]
+    4.457   vision            encoding-complete [car~298]
+    4.507   procedural        ** DRIVE*LOOP-STABLE **
+    4.557   procedural        ** DRIVE*ATTEND-NEAR **
+    4.557   vision            find-location [vision~303]
+    4.557   declarative       start-retrieval
+    4.557   declarative       retrieved-chunk [wander]
+    4.578   eye               preparation-complete [car~287]
+    4.607   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    4.607   vision            find-location [vision~306]
+    4.648   eye               execution-complete [car~287]
+    4.657   procedural        ** DRIVE*PROCESS-CAR **
+    4.657   vision            move-attention
+    4.663   vision            encoding-complete [car~309]
+    4.713   procedural        ** DRIVE*LOOP-STABLE **
+    4.763   procedural        ** DRIVE*ATTEND-NEAR **
+    4.763   vision            find-location [vision~314]
+    4.763   declarative       start-retrieval
+    4.763   declarative       retrieved-chunk [attend]
+    4.792   eye               preparation-complete [car~309]
+    4.813   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    4.813   vision            find-location [vision~317]
+    4.862   eye               execution-complete [car~309]
+    4.863   procedural        ** DRIVE*PROCESS-CAR **
+    4.863   vision            move-attention
+    4.885   vision            encoding-complete [car~320]
+    4.935   procedural        ** DRIVE*LOOP-STABLE **
+    4.985   procedural        ** DRIVE*ATTEND-NEAR **
+    4.985   vision            find-location [vision~325]
+    4.985   declarative       start-retrieval
+    4.985   declarative       retrieved-chunk [attend]
+    4.998   eye               preparation-complete [car~320]
+    5.035   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    5.035   vision            find-location [vision~328]
+    5.068   eye               execution-complete [car~320]
+    5.085   procedural        ** DRIVE*PROCESS-CAR **
+    5.085   vision            move-attention
+    5.097   vision            encoding-complete [car~331]
+    5.147   procedural        ** DRIVE*LOOP-STABLE **
+    5.197   procedural        ** DRIVE*ATTEND-NEAR **
+    5.197   vision            find-location [vision~336]
+    5.197   declarative       start-retrieval
+    5.197   declarative       retrieved-chunk [wander]
+    5.220   eye               preparation-complete [car~331]
+    5.247   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    5.247   vision            find-location [vision~339]
+    5.290   eye               execution-complete [car~331]
+    5.297   procedural        ** DRIVE*PROCESS-CAR **
+    5.297   vision            move-attention
+    5.307   vision            encoding-complete [car~342]
+    5.357   procedural        ** DRIVE*LOOP-STABLE **
+    5.407   procedural        ** DRIVE*ATTEND-NEAR **
+    5.407   vision            find-location [vision~347]
+    5.407   declarative       start-retrieval
+    5.407   declarative       retrieved-chunk [wander]
+    5.432   eye               preparation-complete [car~342]
+    5.457   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    5.457   vision            find-location [vision~350]
+    5.502   eye               execution-complete [car~342]
+    5.507   procedural        ** DRIVE*PROCESS-CAR **
+    5.507   vision            move-attention
+    5.524   vision            encoding-complete [car~353]
+    5.574   procedural        ** DRIVE*LOOP-STABLE **
+    5.624   procedural        ** DRIVE*ATTEND-NEAR **
+    5.624   vision            find-location [vision~358]
+    5.624   declarative       start-retrieval
+    5.624   declarative       retrieved-chunk [attend]
+    5.642   eye               preparation-complete [car~353]
+    5.674   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    5.674   vision            find-location [vision~361]
+    5.712   eye               execution-complete [car~353]
+    5.724   procedural        ** DRIVE*PROCESS-CAR **
+    5.724   vision            move-attention
+    5.729   vision            encoding-complete [car~364]
+    5.779   procedural        ** DRIVE*LOOP-STABLE **
+    5.829   procedural        ** DRIVE*ATTEND-NEAR **
+    5.829   vision            find-location [vision~369]
+    5.829   declarative       start-retrieval
+    5.829   declarative       retrieved-chunk [wander]
+    5.859   eye               preparation-complete [car~364]
+    5.879   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    5.879   vision            find-location [vision~372]
+    5.929   procedural        ** DRIVE*PROCESS-CAR **
+    5.929   vision            move-attention
+    5.929   eye               execution-complete [car~364]
+    5.942   vision            encoding-complete [car~375]
+    5.992   procedural        ** DRIVE*LOOP-STABLE **
+    6.042   procedural        ** DRIVE*ATTEND-NEAR **
+    6.042   vision            find-location [vision~380]
+    6.042   declarative       start-retrieval
+    6.042   declarative       retrieved-chunk [attend]
+    6.064   eye               preparation-complete [car~364]
+    6.092   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    6.092   vision            find-location [vision~383]
+    6.134   eye               execution-complete [car~364]
+    6.142   procedural        ** DRIVE*PROCESS-CAR **
+    6.142   vision            move-attention
+    6.163   vision            encoding-complete [car~386]
+    6.213   procedural        ** DRIVE*LOOP-STABLE **
+    6.263   procedural        ** DRIVE*ATTEND-NEAR **
+    6.263   vision            find-location [vision~391]
+    6.263   declarative       start-retrieval
+    6.263   declarative       retrieved-chunk [attend]
+    6.277   eye               preparation-complete [car~386]
+    6.313   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    6.313   vision            find-location [vision~394]
+    6.347   eye               execution-complete [car~386]
+    6.363   procedural        ** DRIVE*PROCESS-CAR **
+    6.363   vision            move-attention
+    6.375   vision            encoding-complete [car~397]
+    6.425   procedural        ** DRIVE*LOOP-STABLE **
+    6.475   procedural        ** DRIVE*ATTEND-NEAR **
+    6.475   vision            find-location [vision~402]
+    6.475   declarative       start-retrieval
+    6.475   declarative       retrieved-chunk [attend]
+    6.498   eye               preparation-complete [car~397]
+    6.525   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    6.525   vision            find-location [vision~405]
+    6.568   eye               execution-complete [car~397]
+    6.575   procedural        ** DRIVE*PROCESS-CAR **
+    6.575   vision            move-attention
+    6.581   vision            encoding-complete [car~408]
+    6.631   procedural        ** DRIVE*LOOP-STABLE **
+    6.681   procedural        ** DRIVE*ATTEND-NEAR **
+    6.681   vision            find-location [vision~413]
+    6.681   declarative       start-retrieval
+    6.681   declarative       retrieved-chunk [wander]
+    6.710   eye               preparation-complete [car~408]
+    6.731   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    6.731   vision            find-location [vision~416]
+    6.780   eye               execution-complete [car~408]
+    6.781   procedural        ** DRIVE*PROCESS-CAR **
+    6.781   vision            move-attention
+    6.793   vision            encoding-complete [car~419]
+    6.843   procedural        ** DRIVE*LOOP-STABLE **
+    6.893   procedural        ** DRIVE*ATTEND-NEAR **
+    6.893   vision            find-location [vision~424]
+    6.893   declarative       start-retrieval
+    6.893   declarative       retrieved-chunk [attend]
+    6.916   eye               preparation-complete [car~419]
+    6.943   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    6.943   vision            find-location [vision~427]
+    6.986   eye               execution-complete [car~419]
+    6.993   procedural        ** DRIVE*PROCESS-CAR **
+    6.993   vision            move-attention
+    7.006   vision            encoding-complete [car~430]
+    7.056   procedural        ** DRIVE*LOOP-STABLE **
+    7.106   procedural        ** DRIVE*ATTEND-NEAR **
+    7.106   vision            find-location [vision~435]
+    7.106   declarative       start-retrieval
+    7.106   declarative       retrieved-chunk [wander]
+    7.128   eye               preparation-complete [car~430]
+    7.156   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    7.156   vision            find-location [vision~438]
+    7.198   eye               execution-complete [car~430]
+    7.206   procedural        ** DRIVE*PROCESS-CAR **
+    7.206   vision            move-attention
+    7.224   vision            encoding-complete [car~441]
+    7.274   procedural        ** DRIVE*LOOP-STABLE **
+    7.324   procedural        ** DRIVE*ATTEND-NEAR **
+    7.324   vision            find-location [vision~446]
+    7.324   declarative       start-retrieval
+    7.324   declarative       retrieved-chunk [attend]
+    7.341   eye               preparation-complete [car~441]
+    7.374   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    7.374   vision            find-location [vision~449]
+    7.411   eye               execution-complete [car~441]
+    7.424   procedural        ** DRIVE*PROCESS-CAR **
+    7.424   vision            move-attention
+    7.428   vision            encoding-complete [car~452]
+    7.478   procedural        ** DRIVE*LOOP-STABLE **
+    7.528   procedural        ** DRIVE*ATTEND-NEAR **
+    7.528   vision            find-location [vision~457]
+    7.528   declarative       start-retrieval
+    7.528   declarative       retrieved-chunk [attend]
+    7.559   eye               preparation-complete [car~452]
+    7.578   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    7.578   vision            find-location [vision~460]
+    7.628   procedural        ** DRIVE*PROCESS-CAR **
+    7.628   vision            move-attention
+    7.629   eye               execution-complete [car~452]
+    7.638   vision            encoding-complete [car~463]
+    7.688   procedural        ** DRIVE*LOOP-STABLE **
+    7.738   procedural        ** DRIVE*ATTEND-NEAR **
+    7.738   vision            find-location [vision~468]
+    7.738   declarative       start-retrieval
+    7.738   declarative       retrieved-chunk [attend]
+    7.764   eye               preparation-complete [car~452]
+    7.788   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR **
+    7.788   vision            find-location [vision~471]
+    7.834   eye               execution-complete [car~452]
+    7.838   procedural        ** DRIVE*PROCESS-CAR **
+    7.838   vision            move-attention
+    7.848   vision            encoding-complete [car~474]
+    7.898   procedural        ** DRIVE*LOOP-STABLE **
+    7.948   procedural        ** DRIVE*ATTEND-NEAR **
+    7.948   vision            find-location [vision~479]
+    7.948   declarative       start-retrieval
+    7.948   declarative       retrieved-chunk [wander]
+    7.973   eye               preparation-complete [car~474]
+    7.998   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    7.998   vision            find-location [vision~482]
+    8.043   eye               execution-complete [car~474]
+    8.048   procedural        ** DRIVE*PROCESS-CAR **
+    8.048   vision            move-attention
+    8.066   vision            encoding-complete [car~485]
+    8.116   procedural        ** DRIVE*LOOP-STABLE **
+    8.166   procedural        ** DRIVE*ATTEND-NEAR **
+    8.166   vision            find-location [vision~490]
+    8.166   declarative       start-retrieval
+    8.166   declarative       retrieved-chunk [wander]
+    8.183   eye               preparation-complete [car~485]
+    8.216   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    8.216   vision            find-location [vision~493]
+    8.253   eye               execution-complete [car~485]
+    8.266   procedural        ** DRIVE*PROCESS-CAR **
+    8.266   vision            move-attention
+    8.285   vision            encoding-complete [car~496]
+    8.335   procedural        ** DRIVE*LOOP-STABLE **
+    8.385   procedural        ** DRIVE*ATTEND-NEAR **
+    8.385   vision            find-location [vision~501]
+    8.385   declarative       start-retrieval
+    8.385   declarative       retrieved-chunk [attend]
+    8.401   eye               preparation-complete [car~496]
+    8.435   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    8.435   vision            find-location [vision~504]
+    8.472   eye               execution-complete [car~496]
+    8.485   procedural        ** DRIVE*PROCESS-CAR **
+    8.485   vision            move-attention
+    8.501   vision            encoding-complete [car~507]
+    8.551   procedural        ** DRIVE*LOOP-STABLE **
+    8.601   procedural        ** DRIVE*ATTEND-NEAR **
+    8.601   vision            find-location [vision~512]
+    8.601   declarative       start-retrieval
+    8.601   declarative       retrieved-chunk [attend]
+    8.620   eye               preparation-complete [car~507]
+    8.651   procedural        ** DRIVE*PROCESS-NEAR-ATTEND-FAR-CAR **
+    8.651   vision            find-location [vision~515]
+    8.690   eye               execution-complete [car~507]
+    8.701   procedural        ** DRIVE*PROCESS-CAR **
+    8.701   vision            move-attention
+    8.712   vision            encoding-complete [car~518]
+    8.762   procedural        ** DRIVE*LOOP-STABLE **
+    8.812   procedural        ** DRIVE*ATTEND-NEAR **
+    8.812   vision            find-location [vision~523]
+    8.812   declarative       start-retrieval
+    8.812   declarative       retrieved-chunk [attend]
+    8.836   eye               preparation-complete [car~518]
+    8.836   ------            stop
