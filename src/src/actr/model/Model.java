@@ -45,7 +45,7 @@ public class Model
 	List<String> trace = new ArrayList<String>();
 	List<String> state_output = new ArrayList<String>();
 //	public static String outputPath = userDirectory+File.separator+"data"+File.separator;
-	public static String outputPath = userDirectory + File.separator + "src" + File.separator + "data" + File.separator;
+	public static String outputPath = userDirectory + File.separator + "src" + File.separator + "final_data" + File.separator + "driving" + File.separator;
 
 	private Model (Frame frame)
 	{

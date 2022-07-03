@@ -59,6 +59,9 @@ public class Road
 			rl_mid = new Position (middle.x + HALF_STRIPW * h.x, middle.z + HALF_STRIPW * h.z);
 			rr_mid = new Position (middle.x + 3*HALF_STRIPW * h.x, middle.z + 3*HALF_STRIPW * h.z);
 
+//			System.out.print(l_left + " " + ll_left + " " + lll_left + "\n");
+//			System.out.print(r_right);
+
 			if (lanes == 4)
 			{
 				l_lmid = new Position ((0.5*ll_mid.x + 0.5*left.x) - HALF_STRIPW * h.x,
@@ -206,6 +209,20 @@ public class Road
 			lanepos = -lanepos;
 		lanepos += 1;
 		return lanepos;
+
+	}
+
+	double getWidth (Vehicle v) {
+		double i = v.fracIndex;
+		Position lloc = left(i);
+		Position rloc = right(i);
+		Position head = heading(i);
+		double ldx = head.x * (v.p.z - rloc.z);
+		double ldz = head.z * (v.p.x - rloc.x);
+		double wx = head.x * (lloc.z - rloc.z);
+		double wz = head.z * (lloc.x - rloc.x);
+		double width = Math.abs(wx) + Math.abs(wz);
+		return width;
 	}
 
 	int vehicleLane (Vehicle v)
@@ -364,6 +381,7 @@ public class Road
 						&& (lp==1 || lp==4 || ((ri+di) % 5 < 2))
 				)
 					g.drawLine (oldLoc.x, oldLoc.y, newLoc.x, newLoc.y);
+
 				oldLocs[i] = newLoc;
 			}
 

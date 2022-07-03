@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import actr.task.*;
 
+
 /**
  * The main Driving task class that sets up the simulation and starts periodic updates.
  *  
@@ -17,6 +18,7 @@ public class Driving extends actr.task.Task
 	static Simulator simulator = null;
 
 	Simulation simulation;
+	double roadWidth;
 	JLabel nearLabel, carLabel, keypad;
 
 	final double scale = .6; // .85
@@ -30,11 +32,13 @@ public class Driving extends actr.task.Task
 	final double thwFollow = 1.0;
 	final double thwMax = 4.0;
 
-	double startTime=0, endTime=60;
+	double startTime=0, endTime=300;
 	double accelBrake=0, speed=0;
 
 	static int minX=174, maxX=(238+24), minY=94, maxY=(262+32);
 	static int centerX=(minX+maxX)/2, centerY=(minY+maxY)/2;
+
+	float count = 0;
 
 	List<String> output = new ArrayList<String>();
 
@@ -49,6 +53,7 @@ public class Driving extends actr.task.Task
 	public void start ()
 	{
 		simulation = new Simulation (getModel());
+		roadWidth = simulation.env.road.getWidth(simulation.env.simcar);
 
 		if (getModel().getRealTime())
 		{
@@ -88,6 +93,10 @@ public class Driving extends actr.task.Task
 	{
 		if (time <= endTime)
 		{
+			if ((Math.round(time * 100) / 10.00) % 3 == 0) {
+				getModel().getAudio().addAural("test", "test", "hey");
+			}
+
 			simulation.env.time = time - startTime;
 			simulation.update();
 			updateVisuals();
@@ -215,7 +224,7 @@ public class Driving extends actr.task.Task
 
 	public boolean evalCondition (Iterator<String> it)
 	{
-		it.next(); // (
+		it.next();
 		String cmd = it.next();
 		if (cmd.equals ("is-car-stable") || cmd.equals ("is-car-not-stable"))
 		{
@@ -224,6 +233,21 @@ public class Driving extends actr.task.Task
 			double fva = Double.valueOf (it.next());
 			boolean b = isCarStable(na,nva,fva);
 			return cmd.equals("is-car-stable") ? b : !b;
+		}
+		if (cmd.equals("is-over-lane") || cmd.equals("is-not-over-lane")){
+//			double laneWidth = simulation.env.road.getWidth(simulation.env.simcar);
+			Position carPos = simulation.env.simcar.p.myclone();
+
+//			System.out.print(carPos + "\n");
+
+			boolean b = false;
+			if (Math.abs(carPos.z) > 1.0)
+				b = true;
+
+//			System.out.print(simulation.env.simcar.p.myclone().z + " " + b + "\n");
+
+			return cmd.equals("is-over-lane") ? b : !b;
+
 		}
 		else return false;
 	}

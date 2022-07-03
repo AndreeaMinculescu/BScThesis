@@ -52,6 +52,7 @@ public class Simulation
 		Sample s = new Sample ();
 		s.time = String.format("%.2f", env.time);
 		s.simcarPos = env.simcar.p.myclone();
+//		System.out.print(s.simcarPos);
 		s.simcarHeading = env.simcar.h.myclone();
 		s.simcarFracIndex = env.simcar.fracIndex;
 		s.simcarSpeed = env.simcar.speed;
