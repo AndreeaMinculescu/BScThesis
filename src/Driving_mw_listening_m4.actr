@@ -50,22 +50,22 @@
 (goal-focus listen-goal)
 
 ;----- LISTENING --------
-;(p attend-aural-drive
-;    =goal>
-;        isa listen
-;        state start
-;    =aural-location>
-;        isa audio-event
-;    ?aural>
-;        state free
-;    ?retrieval>
-;        state free
-;        buffer empty
-;    !eval! (is-not-over-lane)
-;==>
-;    -aural>
-;    -aural-location>
-;)
+(p attend-aural-drive
+    =goal>
+        isa listen
+        state start
+    =aural-location>
+        isa audio-event
+    ?aural>
+        state free
+    ?retrieval>
+        state free
+        buffer empty
+    !eval! (is-not-over-lane)
+==>
+    -aural>
+    -aural-location>
+)
 
 (p attend-aural
     =goal>
