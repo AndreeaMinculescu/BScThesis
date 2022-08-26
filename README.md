@@ -1,1 +1,1 @@
-# BScThesis
+# BScThesis Project
