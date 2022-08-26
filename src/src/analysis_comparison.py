@@ -2,17 +2,16 @@
 # listen model 2: always attend, access meaning
 # listen model 3: attend while wandering, access meaning
 # listen model 4: always attend, access meaning while wandering
+import math
 
 import pandas as pd
-import numpy as np
 from statistics import mean, stdev
 import statistics
 from math import sqrt
 import matplotlib.pyplot as plt
-import seaborn as sns
 from enum import Enum
-import itertools
 
+# compute the mean/max/stdev lane deviation of 25 model runs
 def get_lane_dev(folder, measure):
     lane_dev = []
     for i in range(1, 25, 1):
@@ -33,6 +32,7 @@ def get_lane_dev(folder, measure):
         lane_dev.append(measure(pos))
     return lane_dev
 
+# compute number of direction changes of 25 model runs
 def get_change_dir_count(folder):
     change_count = []
     for i in range(1, 25, 1):
@@ -71,9 +71,9 @@ def get_change_dir_count(folder):
             count += 1
 
         change_count.append(count)
-        # change_count.append(len(list(itertools.groupby(pos, lambda pos: pos > 0))))
     return change_count
 
+# compute the mean angle devviation of steering angle of 25 model runs
 def get_steer_angle_mean(folder):
     steer_angle = []
     for i in range(1, 25, 1):
@@ -87,32 +87,13 @@ def get_steer_angle_mean(folder):
         angle_list = []
         for elem in df_temp['steerAngle']:
             try:
-                angle_list.append(abs(float(elem)))
+                angle_list.append(abs(float(elem)) * 180/math.pi)
             except ValueError:
                 pass
         steer_angle.append(mean(angle_list))
     return steer_angle
 
-def get_speed_mean(folder):
-    mean_speed = []
-    for i in range(1, 25, 1):
-        try:
-            name = "final_data/" + folder + "/_behavior_00" + str(i) + ".csv"
-            df_temp = pd.read_csv(name, sep="|")
-        except FileNotFoundError:
-            name = "final_data/" + folder + "/_behavior_0" + str(i) + ".csv"
-            df_temp = pd.read_csv(name, sep="|")
-
-        speed_list = []
-        for elem in df_temp['simcarSpeed']:
-            try:
-                speed_list.append(abs(float(elem)))
-            except ValueError:
-                pass
-        mean_speed.append(mean(speed_list))
-    return mean_speed
-
-
+# compute mean and confidence interval
 def plot_confidence_interval(name, x, values, z=1.96, color='black', horizontal_line_width=0.25):
     mean = statistics.mean(values)
     stdev = statistics.stdev(values)
@@ -130,6 +111,7 @@ def plot_confidence_interval(name, x, values, z=1.96, color='black', horizontal_
 
     return mean, confidence_interval
 
+# main plotting function
 def process_graph(graph):
     try:
         func, opt, label, title = graph.value[0], graph.value[1], graph.value[2], graph.value[3]
@@ -140,9 +122,6 @@ def process_graph(graph):
         lane_dev_mw_listen_m2 = func(folder_listen_m2, opt)
         lane_dev_mw_listen_m3 = func(folder_listen_m3, opt)
         lane_dev_mw_listen_m4 = func(folder_listen_m4, opt)
-        # print(lane_dev_driving)
-        # print(lane_dev_mw)
-        # print(lane_dev_mw_listen)
 
     except IndexError:
         func, label, title = graph.value[0], graph.value[1], graph.value[2]
@@ -153,9 +132,6 @@ def process_graph(graph):
         lane_dev_mw_listen_m2 = func(folder_listen_m2)
         lane_dev_mw_listen_m3 = func(folder_listen_m3)
         lane_dev_mw_listen_m4 = func(folder_listen_m4)
-        # print(lane_dev_driving)
-        # print(lane_dev_mw)
-        # print(lane_dev_mw_listen)
 
     data = [lane_dev_mw_listen_m4, lane_dev_mw_listen_m3, lane_dev_mw_listen_m2, lane_dev_mw_listen_m1, lane_dev_mw, lane_dev_driving]
 
@@ -180,7 +156,7 @@ def process_graph(graph):
     ax.set_xlabel(label, fontsize=12)
     plt.xticks(fontsize=11)
     ax.set_yticks([6, 5, 4, 3, 2, 1])
-    ax.set_yticklabels(["Baseline", "Single", "Listen1", "Listen2", "Listen3", "Listen4"], fontsize=12)
+    ax.set_yticklabels(["Baseline\nSalvucci", "Single\n(MW)", "MW+\nListen1", "MW+\nListen2", "MW+\nListen3", "MW+\nListen4"], fontsize=12)
 
 
     plot_confidence_interval("Drive", 6, lane_dev_driving)
@@ -189,8 +165,9 @@ def process_graph(graph):
     plot_confidence_interval("Listen_m2", 3, lane_dev_mw_listen_m2)
     plot_confidence_interval("Listen_m3", 2, lane_dev_mw_listen_m3)
     plot_confidence_interval("Listen_m4", 1, lane_dev_mw_listen_m4)
-    return plt, lane_dev_mw, lane_dev_mw_listen_m1
+    return plt
 
+# TypeGraph = [function to compute, (optional) metric, name of y axis, title of figure]
 class TypeGraph(Enum):
     LaneDevMean = [get_lane_dev, mean, "Deviation (meter)", "Mean Lane Deviation"]
     LaneDevSD = [get_lane_dev, stdev, "Deviation (meter)", "SD Lane Deviation"]
@@ -200,36 +177,29 @@ class TypeGraph(Enum):
 
 
 if __name__ == '__main__':
-
+    # folder paths
     folder_dr = "driving"
     folder_mw = "mind_wandering"
     folder_listen_m1 = "listen_m1"
     folder_listen_m2 = "listen_m2"
     folder_listen_m3 = "listen_m3"
     folder_listen_m4 = "listen_m4"
-    generateAllGraphs = False
-
-    df_mw = pd.DataFrame()
-    df_l1 = pd.DataFrame()
+    # True if all graphs generated at once
+    generateAllGraphs = True
 
     if generateAllGraphs:
         for graph in TypeGraph:
-            plt,mw, l1 = process_graph(graph)
-
-            df_mw[graph] = mw
-            df_l1[graph] = l1
-
-            # plt.savefig(f"final_data/IMAGES/AllGraphs/{graph.name}.png")
+            plt = process_graph(graph)
+            plt.savefig(f"final_data/IMAGES/AllGraphs/{graph.name}.png")
 
             print(f"Graph {graph.name} created!")
 
     else:
-        graph = TypeGraph.LaneDevMax
-        plt, mw, l4 = process_graph(graph)
+        # specify type of graph to be generated
+        graph = TypeGraph.SteerAngleMean
+        plt = process_graph(graph)
         plt.show()
 
-    # df_mw.to_csv("MW_data.csv", sep='|')
-    # df_l1.to_csv("L1_data.csv", sep='|')
 
 
 

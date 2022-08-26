@@ -2,6 +2,7 @@
 # listen model 2: always attend, access meaning
 # listen model 3: attend while wandering, access meaning
 # listen model 4: always attend, access meaning while wandering
+import math
 
 import pandas as pd
 import numpy as np
@@ -87,7 +88,7 @@ def get_steer_angle_mean(folder):
         angle_list = []
         for elem in df_temp['steerAngle']:
             try:
-                angle_list.append(abs(float(elem)))
+                angle_list.append(abs(float(elem)) * 180/math.pi)
             except ValueError:
                 pass
         steer_angle.append(mean(angle_list))
@@ -207,7 +208,7 @@ if __name__ == '__main__':
     folder_listen_m2 = "listen_m2"
     folder_listen_m3 = "listen_m3"
     folder_listen_m4 = "listen_m4"
-    generateAllGraphs = False
+    generateAllGraphs = True
 
     df_mw = pd.DataFrame()
     df_l1 = pd.DataFrame()
@@ -219,17 +220,17 @@ if __name__ == '__main__':
             df_mw[graph] = mw
             df_l1[graph] = l1
 
-            # plt.savefig(f"final_data/IMAGES/AllGraphs/{graph.name}.png")
+            plt.savefig(f"final_data/IMAGES/AllGraphs/{graph.name}.png")
 
             print(f"Graph {graph.name} created!")
 
     else:
-        graph = TypeGraph.LaneDevMax
+        graph = TypeGraph.SteerAngleMean
         plt, mw, l4 = process_graph(graph)
         plt.show()
 
-    # df_mw.to_csv("MW_data.csv", sep='|')
-    # df_l1.to_csv("L1_data.csv", sep='|')
+    df_mw.to_csv("MW_data.csv", sep='|')
+    df_l1.to_csv("L1_data.csv", sep='|')
 
 
 

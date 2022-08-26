@@ -7,10 +7,13 @@ import matplotlib.pyplot as plt
 import statistics
 from math import sqrt
 from statistics import mean
+import os
 
 def get_count_mw(folder):
     mw_occurences = []
-    for i in range(1, 25, 1):
+    DIR = "final_data/" + folder
+    length = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
+    for i in range(1, length+1, 1):
         try:
             name = "final_data/" + folder + "/_trace_00" + str(i) + ".txt"
             f = open(name, "r")
@@ -27,7 +30,9 @@ def get_count_mw(folder):
 
 def get_mean_dur(folder):
     total_dur = []
-    for i in range(1, 25, 1):
+    DIR = "final_data/" + folder
+    length = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
+    for i in range(1, int(length/2+1), 1):
         try:
             name = "final_data/" + folder + "/_trace_00" + str(i) + ".txt"
             f = open(name, "r")
@@ -73,22 +78,22 @@ def plot_confidence_interval(name, x, values, z=1.96, color='black', horizontal_
     return mean, confidence_interval
 
 def plot():
-    count_dr = get_count_mw(folder_dr)
-    count_mw = get_count_mw(folder_mw)
-    count_l1 = get_count_mw(folder_listen_m1)
-    count_l2 = get_count_mw(folder_listen_m2)
-    count_l3 = get_count_mw(folder_listen_m3)
-    count_l4 = get_count_mw(folder_listen_m4)
+    # count_dr = get_count_mw(folder_dr)
+    # count_mw = get_count_mw(folder_mw)
+    # count_l1 = get_count_mw(folder_listen_m1)
+    # count_l2 = get_count_mw(folder_listen_m2)
+    # count_l3 = get_count_mw(folder_listen_m3)
+    # count_l4 = get_count_mw(folder_listen_m4)
 
-    # mean_dur_dr = get_mean_dur(folder_dr)
-    # mean_dur_mw = get_mean_dur(folder_mw)
-    # mean_dur_l1 = get_mean_dur(folder_listen_m1)
-    # mean_dur_l2 = get_mean_dur(folder_listen_m2)
-    # mean_dur_l3 = get_mean_dur(folder_listen_m3)
-    # mean_dur_l4 = get_mean_dur(folder_listen_m4)
+    mean_dur_dr = get_mean_dur(folder_dr)
+    mean_dur_mw = get_mean_dur(folder_mw)
+    mean_dur_l1 = get_mean_dur(folder_listen_m1)
+    mean_dur_l2 = get_mean_dur(folder_listen_m2)
+    mean_dur_l3 = get_mean_dur(folder_listen_m3)
+    mean_dur_l4 = get_mean_dur(folder_listen_m4)
 
 
-    data = [count_l4, count_l3, count_l2, count_l1, count_mw, count_dr]
+    data = [mean_dur_l4, mean_dur_l3, mean_dur_l2, mean_dur_l1, mean_dur_mw, mean_dur_dr]
 
     fig, ax = plt.subplots()
 
@@ -110,14 +115,14 @@ def plot():
     ax.set_yticks([6, 5, 4, 3, 2, 1])
     ax.set_yticklabels(["Baseline", "Single", "Listen1", "Listen2", "Listen3", "Listen4"], fontsize=12)
 
-    plot_confidence_interval("Drive", 6, count_dr)
-    plot_confidence_interval("MW", 5, count_mw)
-    plot_confidence_interval("Listen_m1", 4, count_l1)
-    plot_confidence_interval("Listen_m2", 3, count_l2)
-    plot_confidence_interval("Listen_m3", 2, count_l3)
-    plot_confidence_interval("Listen_m4", 1, count_l4)
+    # plot_confidence_interval("Drive", 6, count_dr)
+    # plot_confidence_interval("MW", 5, count_mw)
+    # plot_confidence_interval("Listen_m1", 4, count_l1)
+    # plot_confidence_interval("Listen_m2", 3, count_l2)
+    # plot_confidence_interval("Listen_m3", 2, count_l3)
+    # plot_confidence_interval("Listen_m4", 1, count_l4)
 
-    plt.savefig(f"final_data/IMAGES/AllGraphs/Count_mw.png")
+    # plt.savefig(f"final_data/IMAGES/AllGraphs/Count_mw.png")
     plt.show()
 
 if __name__ == '__main__':

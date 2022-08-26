@@ -7,10 +7,14 @@ import matplotlib.pyplot as plt
 import statistics
 from math import sqrt
 from statistics import mean
+import os
 
+# compute the number of mind-wandering occurences
 def get_count_mw(folder):
     mw_occurences = []
-    for i in range(1, 25, 1):
+    DIR = "final_data/" + folder
+    length = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
+    for i in range(1, int(length/2+1), 1):
         try:
             name = "final_data/" + folder + "/_trace_00" + str(i) + ".txt"
             f = open(name, "r")
@@ -25,9 +29,12 @@ def get_count_mw(folder):
         mw_occurences.append(count_mw)
     return mw_occurences
 
+# compute the duration of mind-wandering episodes
 def get_mean_dur(folder):
     total_dur = []
-    for i in range(1, 25, 1):
+    DIR = "final_data/" + folder
+    length = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
+    for i in range(1, int(length/2+1), 1):
         try:
             name = "final_data/" + folder + "/_trace_00" + str(i) + ".txt"
             f = open(name, "r")
@@ -53,8 +60,7 @@ def get_mean_dur(folder):
 
     return total_dur
 
-
-
+# compute confidence interval
 def plot_confidence_interval(name, x, values, z=1.96, color='black', horizontal_line_width=0.25):
     mean = statistics.mean(values)
     stdev = statistics.stdev(values)
@@ -72,7 +78,8 @@ def plot_confidence_interval(name, x, values, z=1.96, color='black', horizontal_
 
     return mean, confidence_interval
 
-def plot():
+# main plotting function
+def plot(dur=True):
     count_dr = get_count_mw(folder_dr)
     count_mw = get_count_mw(folder_mw)
     count_l1 = get_count_mw(folder_listen_m1)
@@ -80,15 +87,17 @@ def plot():
     count_l3 = get_count_mw(folder_listen_m3)
     count_l4 = get_count_mw(folder_listen_m4)
 
-    # mean_dur_dr = get_mean_dur(folder_dr)
-    # mean_dur_mw = get_mean_dur(folder_mw)
-    # mean_dur_l1 = get_mean_dur(folder_listen_m1)
-    # mean_dur_l2 = get_mean_dur(folder_listen_m2)
-    # mean_dur_l3 = get_mean_dur(folder_listen_m3)
-    # mean_dur_l4 = get_mean_dur(folder_listen_m4)
+    mean_dur_dr = get_mean_dur(folder_dr)
+    mean_dur_mw = get_mean_dur(folder_mw)
+    mean_dur_l1 = get_mean_dur(folder_listen_m1)
+    mean_dur_l2 = get_mean_dur(folder_listen_m2)
+    mean_dur_l3 = get_mean_dur(folder_listen_m3)
+    mean_dur_l4 = get_mean_dur(folder_listen_m4)
 
-
-    data = [count_l4, count_l3, count_l2, count_l1, count_mw, count_dr]
+    if dur:
+        data = [mean_dur_l4, mean_dur_l3, mean_dur_l2, mean_dur_l1, mean_dur_mw, mean_dur_dr]
+    else:
+        data = [count_l4, count_l3, count_l2, count_l1, count_mw, count_dr]
 
     fig, ax = plt.subplots()
 
@@ -103,25 +112,28 @@ def plot():
     for pc in r['bodies']:
         pc.set_facecolor('#D3D3D3')
         pc.set_alpha(1)
-    ax.set_title("Number of mind-wandering occurences", fontsize=15)
+    if dur:
+        ax.set_title("Mean duration of mind-wandering episodes", fontsize=15)
+    else:
+        ax.set_title("Number of mind-wandering occurences", fontsize=15)
 
     ax.set_xlabel("Count", fontsize=12)
     plt.xticks(fontsize=11)
     ax.set_yticks([6, 5, 4, 3, 2, 1])
-    ax.set_yticklabels(["Baseline", "Single", "Listen1", "Listen2", "Listen3", "Listen4"], fontsize=12)
+    ax.set_yticklabels(["Baseline\nSalvucci", "Single\n(MW)", "MW+\nListen1", "MW+\nListen2", "MW+\nListen3", "MW+\nListen4"], fontsize=12)
 
-    plot_confidence_interval("Drive", 6, count_dr)
-    plot_confidence_interval("MW", 5, count_mw)
-    plot_confidence_interval("Listen_m1", 4, count_l1)
-    plot_confidence_interval("Listen_m2", 3, count_l2)
-    plot_confidence_interval("Listen_m3", 2, count_l3)
-    plot_confidence_interval("Listen_m4", 1, count_l4)
+    plot_confidence_interval("Drive", 6, data[5])
+    plot_confidence_interval("MW", 5, data[4])
+    plot_confidence_interval("Listen_m1", 4, data[3])
+    plot_confidence_interval("Listen_m2", 3, data[2])
+    plot_confidence_interval("Listen_m3", 2, data[1])
+    plot_confidence_interval("Listen_m4", 1, data[0])
 
     plt.savefig(f"final_data/IMAGES/AllGraphs/Count_mw.png")
     plt.show()
 
 if __name__ == '__main__':
-
+    # folder paths
     folder_dr = "driving"
     folder_mw = "mind_wandering"
     folder_listen_m1 = "listen_m1"
@@ -129,15 +141,6 @@ if __name__ == '__main__':
     folder_listen_m3 = "listen_m3"
     folder_listen_m4 = "listen_m4"
 
-    # print(get_count_mw(folder_dr))
-    # print(get_count_mw(folder_mw))
-    # print(get_count_mw(folder_listen_m1))
-    # print(get_count_mw(folder_listen_m2))
-    # print(get_count_mw(folder_listen_m3))
-    # print(get_count_mw(folder_listen_m4))
-
-    plot()
-
-    # print(get_mean_dur(folder_mw))
+    plot(False)
 
 

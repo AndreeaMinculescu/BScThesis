@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 NUM_PART = 15
 
@@ -34,6 +35,9 @@ fig, (ax1, ax2) = plt.subplots(2, 1)
 fig.tight_layout()
 
 y_angle = list(df['steerAngle'][::50])
+# transform from radians to degrees
+for i in range(len(y_angle)):
+    y_angle[i] = y_angle[i] * 180/math.pi
 
 y_pos = []
 for elem in df['simcarPos'][::50]:
@@ -52,7 +56,7 @@ ax1.set_xlabel("time (sec)")
 
 ax2.plot(x, y_angle)
 ax2.axhline(y=0, color='gray', linestyle='--')
-ax2.set_ylim([-2, 2])
+# ax2.set_ylim([-2, 2])
 ax2.set_title("Steering angle")
 ax2.set_ylabel("Degrees")
 ax2.set_xlabel("time (sec)")
